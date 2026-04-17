@@ -2,9 +2,9 @@ import styles from "./styles.module.css"
 import Container from "../../components/container"
 import { Link } from "react-router"
 
-export default function Hero() {
+export default function HeroSection() {
   return (
-    <div className={styles.hero}>
+    <section className={styles.hero}>
       <Container>
         <div className={styles.heroContent}>
           <h1 className={styles.heroTitle}>
@@ -15,6 +15,6 @@ export default function Hero() {
           </Link>
         </div>
       </Container>
-    </div>
+    </section>
   )
 }

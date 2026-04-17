@@ -1,0 +1,28 @@
+.sectionTitleWrapper {
+  width: 100%;
+  margin-bottom: 40px;
+}
+
+.title {
+  margin-right: 32px;
+  font-size: 64px;
+  line-height: 1.1;
+  font-weight: 700;
+  color: #282828;
+  text-transform: capitalize;
+}
+
+.line {
+  flex: 1;
+  height: 1px;
+  background-color: #dddddd;
+}
+
+.button {
+  padding: 8px 16px;
+  border-radius: 8px;
+  border: 1px solid #dddddd;
+  background: transparent;
+  color: #8b8b8b;
+  box-shadow: none;
+}

@@ -2,6 +2,7 @@ import "./App.css"
 import Layout from "./layout"
 import { Routes, Route } from "react-router"
 import Home from "./pages/home"
+import Categories from "./pages/categories"
 
 export default function App() {
   return (
@@ -9,8 +10,8 @@ export default function App() {
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
-          {/* <Route path="districts" element={<Districts />} />
-          <Route path="districts/:districtId" element={<District />} />
+          <Route path="categories/all" element={<Categories />} />
+          {/* <Route path="districts/:districtId" element={<District />} />
           <Route
             path="districts/:districtId/places/:placeId"
             element={<Place />}

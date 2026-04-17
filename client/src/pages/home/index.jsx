@@ -1,10 +1,16 @@
 import "./styles.css"
-import Hero from "../../sections/hero"
+import HeroSection from "../../sections/heroSection"
+import CategoriesSection from "../../sections/categoriesSection"
+import DiscountSection from "../../sections/discountSection"
+import SalesSection from "../../sections/salesSection"
 
 function Home() {
   return (
     <>
-      <Hero />
+      <HeroSection />
+      <CategoriesSection />
+      <DiscountSection />
+      <SalesSection />
     </>
   )
 }

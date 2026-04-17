@@ -4,15 +4,16 @@ import cartIcon from "../../assets/icons/cart-icon.svg"
 import Container from "../container"
 import Nav from "../nav"
 import { Badge } from "antd"
+import { Link } from "react-router"
 
 export default function Header() {
   return (
     <header>
       <Container>
         <div className={styles.headerInner}>
-          <div className={styles.logo}>
+          <Link className={styles.logo} to="/">
             <img src={logo} alt="Pet shop logo" />
-          </div>
+          </Link>
           <Nav />
           <div className={styles.cartIcon}>
             <Badge
