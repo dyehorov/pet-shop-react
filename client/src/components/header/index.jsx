@@ -8,7 +8,7 @@ import { Link } from "react-router"
 
 export default function Header() {
   return (
-    <header>
+    <header className={styles.header}>
       <Container>
         <div className={styles.headerInner}>
           <Link className={styles.logo} to="/">

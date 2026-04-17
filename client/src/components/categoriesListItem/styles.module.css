@@ -1,0 +1,22 @@
+.card {
+  text-decoration: none;
+  cursor: pointer;
+  transition-duration: 0.3s;
+  flex: 1 1 290px;
+  text-align: center;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  transition-duration: 0.3s;
+}
+
+.categorieImage > img {
+  max-width: 290px;
+}
+
+.title {
+  margin-top: 16px;
+  color: #000;
+  font-size: 20px;
+}

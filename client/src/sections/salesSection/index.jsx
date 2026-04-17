@@ -12,8 +12,6 @@ export default function SalesSection() {
 
   useEffect(() => {
     dispatch(fetchProducts())
-
-    console.log(products)
   }, [dispatch])
 
   const getProductsWithSale = () => {
