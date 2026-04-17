@@ -1,6 +1,6 @@
 import { NavLink, Outlet } from "react-router"
-import Header from "../header"
-import Footer from "../footer"
+import Header from "../components/header"
+import Footer from "../components/footer"
 
 function Layout() {
   return (
@@ -8,9 +8,7 @@ function Layout() {
       <Header />
 
       <main className="main-content">
-        <div className="container">
-          <Outlet />
-        </div>
+        <Outlet />
       </main>
 
       <Footer />
