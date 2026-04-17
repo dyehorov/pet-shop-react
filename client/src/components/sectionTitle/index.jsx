@@ -7,7 +7,10 @@ export default function SectionTitle({ title }) {
     <Flex align="center" className={styles.sectionTitleWrapper}>
       <h2 className={styles.title}>{title}</h2>
       <div className={styles.line}></div>
-      <Link className={styles.button} to="/categories/all">
+      <Link
+        className={styles.button}
+        to={title === "sales" ? "products/allSales" : "categories/all"}
+      >
         All {title}
       </Link>
     </Flex>

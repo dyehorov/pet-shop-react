@@ -1,18 +1,11 @@
 import styles from "./styles.module.css"
 import Container from "../../components/container"
 import SectionTitle from "../../components/sectionTitle"
-import { useSelector, useDispatch } from "react-redux"
-import { useEffect } from "react"
-import { fetchProducts } from "../../redux/slices/productsSlice"
+import { useSelector } from "react-redux"
 import SectionList from "../../components/sectionList"
 
 export default function SalesSection() {
-  const dispatch = useDispatch()
   const { data: products } = useSelector(state => state.products)
-
-  useEffect(() => {
-    dispatch(fetchProducts())
-  }, [dispatch])
 
   const getProductsWithSale = () => {
     return products.filter(product => product.discont_price !== null)

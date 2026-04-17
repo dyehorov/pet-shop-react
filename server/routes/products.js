@@ -1,98 +1,44 @@
-const { Op } = require("sequelize");
-const express = require("express");
-
-const parsePaginationParams = require("../middlewares/parsePaginationParams");
-const parseSortParams = require("../middlewares/parseSortParams");
-const parseProductsFilters = require("../middlewares/parseProductsFilters");
-
-const createSort = require("../utils/createSort");
-const createPaginationData = require("../utils/createPaginationData");
-
-const Category = require("../database/models/category");
-const Product = require("../database/models/product");
+const { request } = require('express');
+const express = require('express');
+const Product = require('../database/models/product');
 
 const router = express.Router();
 
-router.get("/all", parsePaginationParams, parseSortParams, async (req, res) => {
-  const { page, perPage, sortBy } = req.query;
 
-  const order = createSort(sortBy);
-  const filters = parseProductsFilters(req.query);
 
-  const products = await Product.findAll({
-    where: {
-        [Op.and]: filters,
-    },
-    limit: perPage,
-    offset: (page - 1) * perPage,
-    order,
-    include: [{
-      model: Category,
-      attributes: ["id", "title", "slug", "image"]
-    }],
-  });
-
-  const total = await Product.count({
-    where: {
-      [Op.and]: filters,
+router.get('/all', (req, res) =>{
+    
+    async function all(){
+        const all = await Product.findAll();
+        console.log(all);
+        res.json(all);
     }
-  });
-
-  const paginationData = createPaginationData({total, page, perPage});
-
-  res.json({
-    products,
-    ...paginationData,
-  });
-});
-
-router.get("/:slug", async (req, res) => {
-  const { slug } = req.params;
-
-  const product = await Product.findOne({ 
-    where: { slug },
-    include: [{
-      model: Category,
-      attributes: ["id", "title", "slug", "image"]
-    }],
-  });
-
-  if (!product) {
-    res.status(404).json({ message: `product with slug ${slug} not found` });
-    return;
-  }
-
-  res.json(product);
-});
-
-router.post("/cart/ids", async(req, res)=> {
-  const products = await Product.findAll({
-    where: {
-      id: {
-        [Op.in]: req.body,
-      }
-    }
-  });
-
-  res.json(products);
+    all();
 })
 
-router.post("/cart/slugs", async(req, res)=> {
-  const products = await Product.findAll({
-    where: {
-      slug: {
-        [Op.in]: req.body,
-      }
-    }
-  });
 
-  res.json(products);
+router.get('/:id', async (req, res) =>{
+    const {id} = req.params;
+
+    if (isNaN(id)){
+        res.json({status: 'ERR', message: 'wrong id'}); 
+        return  
+    }
+    const all = await Product.findAll({where: {id: +id}});
+
+    if(all.length === 0){
+        res.json({status: 'ERR', message: 'product not found'});
+        return
+    }
+    
+    res.json(all);
 })
 
-router.get("/add/:title/:price/:discont_price/:description", (req, res) => {
-  const { title, price, discont_price, description } = req.params;
-  Product.create({ title, price, discont_price, description, categoryId: 1 });
-  res.json(`добавлено`);
-});
+
+router.get('/add/:title/:price/:discont_price/:description', (req, res) =>{
+    const {title, price, discont_price, description} = req.params;
+    Product.create({title, price, discont_price, description, categoryId: 1});
+    res.json(`добавлено`);
+})
 
 module.exports = router;

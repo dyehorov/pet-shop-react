@@ -1,7 +1,7 @@
+const sequelize = require('../database');
 const { DataTypes } = require("sequelize");
 const { Sequelize } = require('sequelize');
-
-const sequelize = require('../database');
+const Product = require('./product');
 
 const Category = sequelize.define("category", {
     id : {
@@ -11,12 +11,8 @@ const Category = sequelize.define("category", {
     },
     title: DataTypes.TEXT,
     image: DataTypes.TEXT,
-    slug: {
-        type: DataTypes.STRING,
-    }
 });
 
-// Category.sync({alter: true});
 
 
 module.exports = Category;

@@ -5,7 +5,7 @@ const navMenu = [
   { title: "Main Page", path: "/" },
   { title: "Categories", path: "/categories/all" },
   { title: "All products", path: "/products/all" },
-  { title: "All sales", path: "/products/all" },
+  { title: "All sales", path: "/products/allSales" },
 ]
 
 export default function Nav() {

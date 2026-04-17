@@ -12,10 +12,6 @@ export default function SectionListItem({
     ? Math.round(((price - discont_price) / price) * 100)
     : null
 
-  const getShortProductTitle = () => {
-    return (title.length = 20)
-  }
-
   if (!price)
     return (
       <Link to={`/categories/${id}`} className={styles.card}>
@@ -41,7 +37,7 @@ export default function SectionListItem({
           className={styles.image}
         />
       </div>
-      <div className={styles.content}>
+      <div className={`${styles.content} ${styles.contentSales}`}>
         <p className={styles.titleSales}>{title}</p>
         <div className={styles.priceBlock}>
           <span className={styles.currentPrice}>${discont_price}</span>
