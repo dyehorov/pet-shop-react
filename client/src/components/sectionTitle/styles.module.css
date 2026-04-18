@@ -5,7 +5,7 @@
 
 .title {
   margin-right: 32px;
-  font-size: 64px;
+  font-size: clamp(1.5rem, -0.412rem + 7.843vi, 4rem);
   line-height: 1.1;
   font-weight: 700;
   color: #282828;
@@ -25,4 +25,11 @@
   background: transparent;
   color: #8b8b8b;
   box-shadow: none;
+  font-size: clamp(0.75rem, 0.559rem + 0.784vi, 1rem);
+}
+
+@media screen and (max-width: 400px) {
+  .button {
+    padding: 4px 8px;
+  }
 }

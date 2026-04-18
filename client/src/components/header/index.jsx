@@ -5,6 +5,7 @@ import Container from "../container"
 import Nav from "../nav"
 import { Badge } from "antd"
 import { Link } from "react-router"
+import DropDownMenu from "../dropDownMenu"
 
 export default function Header() {
   return (
@@ -15,6 +16,7 @@ export default function Header() {
             <img src={logo} alt="Pet shop logo" />
           </Link>
           <Nav />
+          <DropDownMenu />
           <div className={styles.cartIcon}>
             <Badge
               count="5"
