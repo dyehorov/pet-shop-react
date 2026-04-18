@@ -4,6 +4,7 @@ import { Routes, Route, useParams } from "react-router"
 import Home from "./pages/home"
 import Categories from "./pages/categories"
 import ProductsPage from "./pages/productsPage"
+import NotFound from "./pages/notFound"
 import { useSelector, useDispatch } from "react-redux"
 import { fetchProducts } from "./redux/slices/productsSlice"
 import { fetchCategories } from "./redux/slices/categoriesSlice"
@@ -49,9 +50,9 @@ export default function App() {
           <Route
             path="districts/:districtId/places/:placeId"
             element={<Place />}
-          />
-          <Route path="home" element={<Navigate to="/" replace />} />
-          <Route path="*" element={<NotFound />} /> */}
+          /> */}
+          {/* <Route path="home" element={<Navigate to="/" replace />} /> */}
+          <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>
     </>
