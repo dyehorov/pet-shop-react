@@ -1,5 +1,7 @@
 import styles from "./styles.module.css"
 import { Link } from "react-router"
+import { useSelector, useDispatch } from "react-redux"
+import { addToCart } from "../../redux/slices/cartSlice"
 
 export default function ProductsListItem({
   id,
@@ -8,6 +10,11 @@ export default function ProductsListItem({
   price,
   discont_price,
 }) {
+  const dispatch = useDispatch()
+  const cartItems = useSelector(state => state.cart.items)
+
+  const isInCart = cartItems.some(item => item.id === id)
+
   const discountPercent = discont_price
     ? Math.round(((price - discont_price) / price) * 100)
     : null
@@ -15,7 +22,15 @@ export default function ProductsListItem({
   const handleAddToCart = event => {
     event.stopPropagation()
 
-    console.log("ADD TO CART:", id)
+    dispatch(
+      addToCart({
+        id,
+        image,
+        title,
+        price,
+        discont_price,
+      }),
+    )
   }
 
   return (
@@ -30,8 +45,12 @@ export default function ProductsListItem({
           alt={title}
           className={styles.image}
         />
-        <button className={styles.addToCartButton} onClick={handleAddToCart}>
-          Add to cart
+        <button
+          className={styles.addToCartButton}
+          onClick={handleAddToCart}
+          disabled={isInCart}
+        >
+          {isInCart ? "In cart" : "Add to cart"}
         </button>
       </div>
       <div className={styles.content}>

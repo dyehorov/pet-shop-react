@@ -55,9 +55,10 @@ export default function DiscountSection() {
                 type="submit"
                 className={
                   isDiscountRequested
-                    ? `${styles.buttonSubmitted} ${styles.button} `
+                    ? `${styles.buttonSubmitted} ${styles.button}`
                     : styles.button
                 }
+                disabled={isDiscountRequested}
               >
                 {isDiscountRequested ? "Request Submitted" : "Get a discount"}
               </button>

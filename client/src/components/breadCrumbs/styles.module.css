@@ -1,0 +1,36 @@
+.breadcrumbs {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-top: 40px;
+}
+
+.link,
+.breadcrumbs div {
+  position: relative;
+  padding: 8px 16px;
+  margin-bottom: 40px;
+  border: 1px solid #dddddd;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: 500;
+  color: #8b8b88;
+  text-decoration: none;
+}
+
+.link::after {
+  content: "";
+
+  position: absolute;
+  top: 50%;
+  right: -17px;
+
+  width: 16px;
+  height: 1px;
+
+  background-color: #dddddd;
+}
+
+.breadcrumbs .current_page {
+  color: #282828;
+}

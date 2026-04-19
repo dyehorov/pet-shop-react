@@ -10,7 +10,7 @@ export default function HeroSection() {
           <h1 className={styles.heroTitle}>
             Amazing Discounts <br /> on Pets Products!
           </h1>
-          <Link className={styles.heroLink} to="/sales">
+          <Link className={styles.heroLink} to="/products/allSales">
             Check out
           </Link>
         </div>

@@ -9,6 +9,12 @@
   align-items: center;
   gap: 12px;
   color: #282828;
+  transition-duration: 0.3s;
+}
+
+.content:hover {
+  transform: translateY(-4px);
+  transition-duration: 0.3s;
 }
 
 .categorieImage {
@@ -23,6 +29,7 @@
 
 .titleSales {
   margin: 0;
+  width: 100%;
   font-size: 20px;
   font-weight: 500;
   white-space: nowrap;
@@ -31,6 +38,7 @@
 }
 
 .cardProduct {
+  position: relative;
   display: flex;
   flex-direction: column;
   height: 100%;
@@ -45,9 +53,14 @@
     transform 0.2s ease;
 }
 
+.linkOverlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
 .cardProduct:hover {
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
-  transform: translateY(-2px);
 }
 
 .imageWrapper {
@@ -70,7 +83,7 @@
   position: absolute;
   top: 16px;
   right: 16px;
-  z-index: 2;
+  z-index: 3;
   padding: 8px 12px;
   border-radius: 6px;
   background-color: #0d50ff;
@@ -78,6 +91,34 @@
   font-size: 20px;
   line-height: 1;
   font-weight: 600;
+}
+
+.addToCartButton {
+  position: absolute;
+  bottom: 12px;
+  left: 50%;
+  transform: translateX(-50%) translateY(20px);
+  z-index: 3;
+  opacity: 0;
+  transition: 0.3s ease;
+  background: #0d50ff;
+  width: 90%;
+  color: #ffffff;
+  border: none;
+  padding: 16px 32px;
+  border-radius: 8px;
+  font-size: 20px;
+  cursor: pointer;
+  font-family: "Montserrat", sans-serif;
+}
+
+.addToCartButton:hover {
+  background-color: #000000;
+}
+
+.cardProduct:hover .addToCartButton {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
 }
 
 .content {
@@ -88,7 +129,8 @@
 }
 
 .contentSales {
-  padding: 20px 24px 24px;
+  padding: 20px 12px 24px;
+  align-items: flex-start;
 }
 
 .title {

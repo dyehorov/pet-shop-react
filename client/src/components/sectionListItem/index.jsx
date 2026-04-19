@@ -24,8 +24,15 @@ export default function SectionListItem({
       </Link>
     )
 
+  const handleAddToCart = event => {
+    event.stopPropagation()
+
+    console.log("ADD TO CART:", id)
+  }
+
   return (
-    <Link to={`/products/${id}`} className={styles.cardProduct}>
+    <div className={styles.cardProduct}>
+      <Link to={`/products/${id}`} className={styles.linkOverlay} />
       <div className={styles.imageWrapper}>
         {discountPercent && (
           <span className={styles.discountBadge}>-{discountPercent}%</span>
@@ -36,6 +43,9 @@ export default function SectionListItem({
           alt={title}
           className={styles.image}
         />
+        <button className={styles.addToCartButton} onClick={handleAddToCart}>
+          Add to cart
+        </button>
       </div>
       <div className={`${styles.content} ${styles.contentSales}`}>
         <p className={styles.titleSales}>{title}</p>
@@ -44,6 +54,6 @@ export default function SectionListItem({
           <span className={styles.oldPrice}>${price}</span>
         </div>
       </div>
-    </Link>
+    </div>
   )
 }

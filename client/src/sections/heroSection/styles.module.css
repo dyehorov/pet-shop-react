@@ -26,3 +26,7 @@
   color: #fff;
   text-decoration: none;
 }
+
+.heroLink:hover {
+  background-color: #000;
+}

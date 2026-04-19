@@ -1,10 +1,12 @@
 import "./App.css"
 import Layout from "./layout"
-import { Routes, Route, useParams } from "react-router"
+import { Routes, Route } from "react-router"
 import Home from "./pages/home"
 import Categories from "./pages/categories"
 import ProductsPage from "./pages/productsPage"
+import Product from "./pages/product"
 import NotFound from "./pages/notFound"
+import Cart from "./pages/cart"
 import { useSelector, useDispatch } from "react-redux"
 import { fetchProducts } from "./redux/slices/productsSlice"
 import { fetchCategories } from "./redux/slices/categoriesSlice"
@@ -13,7 +15,6 @@ import { useEffect } from "react"
 export default function App() {
   const dispatch = useDispatch()
   const { data: products } = useSelector(state => state.products)
-  const { data: categories } = useSelector(state => state.categories)
 
   const discountedItems = products.filter(
     product => product.discont_price !== null,
@@ -31,6 +32,7 @@ export default function App() {
           <Route index element={<Home />} />
           <Route path="categories/all" element={<Categories />} />
           <Route path="categories/:categorieId" element={<ProductsPage />} />
+          <Route path="products/:productId" element={<Product />} />
           <Route
             path="products/all"
             element={
@@ -46,12 +48,7 @@ export default function App() {
               />
             }
           />
-          {/* <Route path="districts/:districtId" element={<District />} />
-          <Route
-            path="districts/:districtId/places/:placeId"
-            element={<Place />}
-          /> */}
-          {/* <Route path="home" element={<Navigate to="/" replace />} /> */}
+          <Route path="/cart" element={<Cart />} />
           <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>

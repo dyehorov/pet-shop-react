@@ -1,12 +1,17 @@
 .card {
+  list-style: none;
+  flex: 1 1 290px;
+}
+
+.link {
   text-decoration: none;
   cursor: pointer;
   transition-duration: 0.3s;
-  flex: 1 1 290px;
+  display: block;
   text-align: center;
 }
 
-.card:hover {
+.link:hover {
   transform: translateY(-4px);
   transition-duration: 0.3s;
 }
