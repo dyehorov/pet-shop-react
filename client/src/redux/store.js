@@ -10,7 +10,6 @@ const store = configureStore({
     products: productsSlice,
     product: productSlice,
     cart: cartSlice,
-    orderResponse: cartSlice,
   },
 })
 

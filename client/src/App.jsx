@@ -44,6 +44,7 @@ export default function App() {
             element={
               <ProductsPage
                 title={"Discounted items"}
+                breadcrumbTitle={"All sales"}
                 products={discountedItems}
               />
             }

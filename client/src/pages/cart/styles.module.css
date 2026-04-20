@@ -29,6 +29,7 @@
   box-shadow: none;
   font-size: clamp(0.75rem, 0.559rem + 0.784vi, 1rem);
   transition-duration: 0.3s;
+  font-family: "Montserrat", sans-serif;
 }
 
 .button:hover {
@@ -231,52 +232,6 @@
   color: #282828;
 }
 
-.orderForm {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
-
-.input {
-  width: 100%;
-  height: 58px;
-  padding: 16px 24px;
-  border: 1px solid #dddddd;
-  border-radius: 8px;
-  background: #ffffff;
-  color: #282828;
-  font-size: 20px;
-  outline: none;
-}
-
-.input::placeholder {
-  color: #8b8b8b;
-}
-
-.orderButton {
-  width: 100%;
-  height: 58px;
-  border: none;
-  border-radius: 6px;
-  background: #0d50ff;
-  color: #ffffff;
-  font-size: 20px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: 0.3s ease;
-  font-family: "Montserrat", sans-serif;
-}
-
-.orderButton:hover {
-  background: #282828;
-}
-
-.orderButtonSuccess {
-  background-color: #fff;
-  color: #000;
-  border: 1px solid #000;
-}
-
 .emptyCart {
   padding: 40px 0 80px;
 }
@@ -299,6 +254,7 @@
   font-weight: 500;
   cursor: pointer;
   transition: 0.3s ease;
+  font-family: "Montserrat", sans-serif;
 }
 
 .continueButton:hover {
@@ -396,13 +352,6 @@
     width: 72px;
     height: 48px;
     font-size: 18px;
-  }
-
-  .input,
-  .orderButton {
-    height: 50px;
-    font-size: 18px;
-    padding: 12px 16px;
   }
 
   .orderDetails {

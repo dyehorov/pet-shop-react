@@ -1,20 +1,30 @@
 import styles from "./styles.module.css"
+import { useForm } from "react-hook-form"
 import Container from "../../components/container"
 import petsImg from "../../assets/discount-pets.png"
 import { useDispatch } from "react-redux"
 import { getDiscount } from "../../redux/slices/categoriesSlice"
 import { useState } from "react"
+import Form from "../../components/form"
 
 export default function DiscountSection() {
   const [isDiscountRequested, setIsDiscountRequested] = useState(false)
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({
+    defaultValues: {
+      name: "",
+      phone: "",
+      email: "",
+    },
+  })
 
   const dispatch = useDispatch()
 
-  const handleSubmit = event => {
-    event.preventDefault()
-
+  const submitDiscountRequest = () => {
     dispatch(getDiscount())
-
     setIsDiscountRequested(true)
   }
 
@@ -29,40 +39,16 @@ export default function DiscountSection() {
               <img src={petsImg} alt="Pets" className={styles.image} />
             </div>
 
-            <form
+            <Form
               className={styles.form}
-              onSubmit={event => handleSubmit(event)}
-            >
-              <input
-                type="text"
-                placeholder="Name"
-                className={styles.input}
-                required
-              />
-              <input
-                type="tel"
-                placeholder="Phone number"
-                className={styles.input}
-                required
-              />
-              <input
-                type="email"
-                placeholder="Email"
-                className={styles.input}
-                required
-              />
-              <button
-                type="submit"
-                className={
-                  isDiscountRequested
-                    ? `${styles.buttonSubmitted} ${styles.button}`
-                    : styles.button
-                }
-                disabled={isDiscountRequested}
-              >
-                {isDiscountRequested ? "Request Submitted" : "Get a discount"}
-              </button>
-            </form>
+              register={register}
+              errors={errors}
+              onSubmit={handleSubmit(submitDiscountRequest)}
+              submitLabel="Get a discount"
+              successLabel="Request Submitted"
+              status={isDiscountRequested ? "succeeded" : "idle"}
+              theme="dark"
+            />
           </div>
         </div>
       </Container>

@@ -2,8 +2,10 @@ import styles from "./styles.module.css"
 import { Flex, Modal } from "antd"
 import { useNavigate } from "react-router"
 import { useEffect, useState } from "react"
+import { useForm } from "react-hook-form"
 import Container from "../../components/container"
 import { useSelector, useDispatch } from "react-redux"
+import Form from "../../components/form"
 import {
   removeFromCart,
   incrementQuantity,
@@ -24,10 +26,17 @@ export default function Cart() {
     error,
   } = useSelector(state => state.cart)
 
-  const [formData, setFormData] = useState({
-    name: "",
-    phone: "",
-    email: "",
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors: formErrors },
+  } = useForm({
+    defaultValues: {
+      name: "",
+      phone: "",
+      email: "",
+    },
   })
 
   const [isModalOpen, setIsModalOpen] = useState(false)
@@ -46,22 +55,12 @@ export default function Cart() {
     }
   }, [status, orderResponse])
 
-  const handleChange = event => {
-    const { name, value } = event.target
-
-    setFormData(prev => ({
-      ...prev,
-      [name]: value,
-    }))
-  }
-
-  const handleSubmit = event => {
-    event.preventDefault()
-
+  const submitOrder = formData => {
     const orderData = {
       ...formData,
       products: cartItems.map(item => ({
         id: item.id,
+        title: item.title,
         quantity: item.quantity,
       })),
       totalPrice,
@@ -75,12 +74,7 @@ export default function Cart() {
     setIsModalOpen(false)
     dispatch(clearCart())
     dispatch(resetOrderState())
-
-    setFormData({
-      name: "",
-      phone: "",
-      email: "",
-    })
+    reset()
   }
 
   if (cartItems.length === 0) {
@@ -201,55 +195,17 @@ export default function Cart() {
               </span>
             </div>
 
-            <form className={styles.orderForm} onSubmit={handleSubmit}>
-              <input
-                type="text"
-                name="name"
-                placeholder="Name"
-                className={styles.input}
-                value={formData.name}
-                onChange={handleChange}
-                required
-              />
-              <input
-                type="tel"
-                name="phone"
-                placeholder="Phone number"
-                className={styles.input}
-                value={formData.phone}
-                onChange={handleChange}
-                required
-              />
-              <input
-                type="email"
-                name="email"
-                placeholder="Email"
-                className={styles.input}
-                value={formData.email}
-                onChange={handleChange}
-                required
-              />
-
-              <button
-                type="submit"
-                className={
-                  status === "succeeded"
-                    ? `${styles.orderButton} ${styles.orderButtonSuccess}`
-                    : styles.orderButton
-                }
-                disabled={status === "loading"}
-              >
-                {status === "loading"
-                  ? "Sending..."
-                  : status === "succeeded"
-                    ? "The Order is Placed"
-                    : "Order"}
-              </button>
-
-              {status === "failed" && error && (
-                <p className={styles.orderError}>{error}</p>
-              )}
-            </form>
+            <Form
+              className={styles.orderForm}
+              register={register}
+              errors={formErrors}
+              onSubmit={handleSubmit(submitOrder)}
+              submitLabel="Order"
+              loadingLabel="Sending..."
+              successLabel="The Order is Placed"
+              status={status}
+              error={status === "failed" ? error : null}
+            />
           </aside>
         </div>
 

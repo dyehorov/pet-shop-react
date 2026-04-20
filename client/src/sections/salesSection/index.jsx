@@ -12,7 +12,7 @@ export default function SalesSection() {
   }
 
   return (
-    <section className={styles.sale}>
+    <section className={styles.salesSection}>
       <Container>
         <div className={styles.categoriesInner}>
           <SectionTitle title={"sales"} />

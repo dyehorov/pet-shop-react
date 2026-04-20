@@ -10,7 +10,7 @@ function BreadCrumbs({ previous, current }) {
           {elem.title}
         </Link>
       ))}
-      <div className={styles.current_page}>{current}</div>
+      <div className={styles.currentPage}>{current}</div>
     </div>
   )
 }
