@@ -3,8 +3,26 @@ import axios from "axios"
 
 const BASE_URL = "http://localhost:3333"
 
+const getCartItemsFromLocalStorage = () => {
+  try {
+    const savedCart = localStorage.getItem("shopping-cart")
+
+    return savedCart ? JSON.parse(savedCart) : []
+  } catch {
+    return []
+  }
+}
+
+const saveCartItems = items => {
+  try {
+    localStorage.setItem("shopping-cart", JSON.stringify(items))
+  } catch (error) {
+    console.error("Failed to save cart to localStorage", error)
+  }
+}
+
 const initialState = {
-  items: [],
+  items: getCartItemsFromLocalStorage(),
   orderResponse: null,
   status: "idle",
   error: null,
@@ -43,16 +61,20 @@ const cartSlice = createSlice({
           quantity: quantityToAdd,
         })
       }
+
+      saveCartItems(state.items)
     },
 
     removeFromCart: (state, action) => {
       state.items = state.items.filter(item => item.id !== action.payload)
+      saveCartItems(state.items)
     },
 
     incrementQuantity: (state, action) => {
       const item = state.items.find(item => item.id === action.payload)
 
       if (item) item.quantity += 1
+      saveCartItems(state.items)
     },
 
     decrementQuantity: (state, action) => {
@@ -67,10 +89,13 @@ const cartSlice = createSlice({
           )
         }
       }
+
+      saveCartItems(state.items)
     },
 
     clearCart: state => {
       state.items = []
+      saveCartItems(state.items)
     },
 
     resetOrderState: state => {
