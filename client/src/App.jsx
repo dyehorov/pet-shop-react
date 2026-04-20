@@ -11,6 +11,7 @@ import { useSelector, useDispatch } from "react-redux"
 import { fetchProducts } from "./redux/slices/productsSlice"
 import { fetchCategories } from "./redux/slices/categoriesSlice"
 import { useEffect } from "react"
+import { BrowserRouter } from "react-router"
 
 export default function App() {
   const dispatch = useDispatch()
@@ -26,7 +27,7 @@ export default function App() {
   }, [dispatch])
 
   return (
-    <>
+    <BrowserRouter>
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
@@ -53,6 +54,6 @@ export default function App() {
           <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>
-    </>
+    </BrowserRouter>
   )
 }
