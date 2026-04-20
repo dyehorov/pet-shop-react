@@ -1,0 +1,27 @@
+.card {
+  list-style: none;
+  flex: 1 1 290px;
+}
+
+.link {
+  text-decoration: none;
+  cursor: pointer;
+  transition-duration: 0.3s;
+  display: block;
+  text-align: center;
+}
+
+.link:hover {
+  transform: translateY(-4px);
+  transition-duration: 0.3s;
+}
+
+.categorieImage > img {
+  max-width: 290px;
+}
+
+.title {
+  margin-top: 16px;
+  color: #000;
+  font-size: 20px;
+}

@@ -1,6 +1,8 @@
+const { request } = require('express');
 const express = require('express');
 
 const router = express.Router();
+
 
 router.get('/send', (req, res) =>{
     res.json({});
@@ -8,6 +10,7 @@ router.get('/send', (req, res) =>{
 })
 
 router.post('/send', (req, res) => {
+    
     res.json({status: 'OK', message: 'request processed'})
 })
 

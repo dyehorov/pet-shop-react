@@ -1,0 +1,43 @@
+.sectionList {
+  position: relative;
+}
+
+.slide {
+  padding: 0 12px;
+}
+
+.sectionList :global(.slick-list) {
+  margin: 0 -12px;
+}
+
+.sectionList :global(.slick-slide) {
+  height: inherit;
+}
+
+.sectionList :global(.slick-slide) p {
+  font-family: "Montserrat", sans-serif;
+}
+
+.sectionList :global(.slick-slide > div) {
+  height: 100%;
+}
+
+.sectionList :global(.slick-prev) {
+  left: -24px;
+  z-index: 1;
+}
+
+.sectionList :global(.slick-next) {
+  right: -24px;
+  z-index: 1;
+}
+
+.sectionList :global(.slick-prev::after) {
+  font-size: 22px;
+  color: #282828;
+}
+
+.sectionList :global(.slick-next::after) {
+  font-size: 22px;
+  color: #282828;
+}

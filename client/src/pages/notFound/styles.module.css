@@ -1,0 +1,40 @@
+.notFoundWrapper {
+  text-align: center;
+  margin-top: 80px;
+}
+
+.notFoundWrapper img {
+  width: 100%;
+  max-width: 600px;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+.notFoundTitle {
+  font-size: clamp(1.5rem, -0.412rem + 7.843vi, 4rem);
+  margin: 24px 0;
+}
+
+.notFoundMessage {
+  font-size: clamp(0.75rem, 0.368rem + 1.569vi, 1.25rem);
+  color: grey;
+  margin-bottom: 32px;
+}
+
+.notFoundLink {
+  color: #fff;
+  background-color: #0d50ff;
+  padding: 16px 56px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+@media screen and (max-width: 600px) {
+  .notFoundLink {
+    padding: 12px 32px;
+    font-size: 16px;
+  }
+}

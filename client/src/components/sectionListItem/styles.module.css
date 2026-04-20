@@ -1,0 +1,167 @@
+.card {
+  display: block;
+  text-decoration: none;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  color: #282828;
+  transition-duration: 0.3s;
+}
+
+.content:hover {
+  transform: translateY(-4px);
+  transition-duration: 0.3s;
+}
+
+.categorieImage {
+  width: 100%;
+}
+
+.categorieImage > img {
+  display: block;
+  width: 100%;
+  border-radius: 12px;
+}
+
+.titleSales {
+  margin: 0;
+  width: 100%;
+  font-size: 20px;
+  font-weight: 500;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.cardProduct {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  border: 1px solid #dddddd;
+  border-radius: 12px;
+  overflow: hidden;
+  text-decoration: none;
+  background-color: #ffffff;
+  color: #282828;
+  transition:
+    box-shadow 0.2s ease,
+    transform 0.2s ease;
+}
+
+.linkOverlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+.cardProduct:hover {
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+.imageWrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 316 / 284;
+  overflow: hidden;
+  border-bottom: 1px solid #dddddd;
+  background-color: #f7f7f7;
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.discountBadge {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  z-index: 3;
+  padding: 8px 12px;
+  border-radius: 6px;
+  background-color: #0d50ff;
+  color: #ffffff;
+  font-size: 20px;
+  line-height: 1;
+  font-weight: 600;
+}
+
+.addToCartButton {
+  position: absolute;
+  bottom: 12px;
+  left: 50%;
+  transform: translateX(-50%) translateY(20px);
+  z-index: 3;
+  opacity: 0;
+  transition: 0.3s ease;
+  background: #0d50ff;
+  width: 90%;
+  color: #ffffff;
+  border: none;
+  padding: 16px 32px;
+  border-radius: 8px;
+  font-size: 20px;
+  cursor: pointer;
+  font-family: "Montserrat", sans-serif;
+}
+
+.addToCartButton:hover {
+  background-color: #000000;
+}
+
+.cardProduct:hover .addToCartButton {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 20px 0 24px;
+}
+
+.contentSales {
+  padding: 20px 12px 24px;
+  align-items: flex-start;
+}
+
+.title {
+  margin: 0;
+  font-size: 20px;
+  line-height: 1.3;
+  font-weight: 500;
+  color: #282828;
+  overflow: hidden;
+}
+
+.priceBlock {
+  display: flex;
+  align-items: flex-end;
+  gap: 16px;
+  flex-wrap: wrap;
+  font-family: "Montserrat", sans-serif;
+}
+
+.currentPrice {
+  font-size: 40px;
+  line-height: 1;
+  font-weight: 700;
+  color: #282828;
+  font-family: "Montserrat", sans-serif;
+}
+
+.oldPrice {
+  font-size: 20px;
+  line-height: 1;
+  font-weight: 500;
+  color: #8b8b8b;
+  text-decoration: line-through;
+}

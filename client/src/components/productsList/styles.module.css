@@ -1,0 +1,19 @@
+.productsList {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 32px;
+  justify-content: center;
+}
+
+.emptyState {
+  width: 100%;
+  padding: 32px;
+  border: 1px solid #dddddd;
+  border-radius: 12px;
+  background: #f7f7f7;
+  color: #282828;
+  font-size: 20px;
+  line-height: 1.4;
+  text-align: center;
+}

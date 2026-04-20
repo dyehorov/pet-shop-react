@@ -1,0 +1,378 @@
+.sectionTitleWrapper {
+  width: 100%;
+  margin: 40px 0;
+}
+
+.title {
+  margin-right: 32px;
+  font-size: clamp(1.5rem, -0.412rem + 7.843vi, 4rem);
+  line-height: 1.1;
+  font-weight: 700;
+  color: #282828;
+  text-transform: capitalize;
+  white-space: nowrap;
+}
+
+.line {
+  flex: 1;
+  height: 1px;
+  background-color: #dddddd;
+  margin-right: 32px;
+}
+
+.button {
+  padding: 8px 16px;
+  border-radius: 8px;
+  border: 1px solid #dddddd;
+  background: transparent;
+  color: #8b8b8b;
+  box-shadow: none;
+  font-size: clamp(0.75rem, 0.559rem + 0.784vi, 1rem);
+  transition-duration: 0.3s;
+  font-family: "Montserrat", sans-serif;
+}
+
+.button:hover {
+  cursor: pointer;
+  color: #0d50ff;
+  border-color: #0d50ff;
+  transition-duration: 0.3s;
+}
+
+.cartSection {
+  padding-bottom: 80px;
+}
+
+.cartContent {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 548px;
+  gap: 32px;
+  align-items: start;
+}
+
+.cartList {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.cartItem {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  min-height: 180px;
+  border: 1px solid #dddddd;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #ffffff;
+}
+
+.imageBox {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  border-right: 1px solid #dddddd;
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+.itemInfo {
+  padding: 24px 32px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.itemTop {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.itemTitle {
+  margin: 0;
+  font-size: clamp(1.125rem, 0.934rem + 0.784vi, 1.375rem);
+  line-height: 1.3;
+  font-weight: 500;
+  color: #282828;
+}
+
+.removeButton {
+  border: none;
+  background: transparent;
+  color: #282828;
+  font-size: 38px;
+  line-height: 1;
+  padding: 0;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.removeButton:hover {
+  color: #0d50ff;
+}
+
+.itemBottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.counter {
+  display: flex;
+  align-items: center;
+}
+
+.counterButton {
+  width: 58px;
+  height: 58px;
+  border: 1px solid #dddddd;
+  background: #ffffff;
+  color: #8b8b8b;
+  font-size: 32px;
+  line-height: 1;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.counterButton:hover {
+  color: #0d50ff;
+  border-color: #0d50ff;
+}
+
+.counterButton:first-child {
+  border-radius: 8px 0 0 8px;
+}
+
+.counterButton:last-child {
+  border-radius: 0 8px 8px 0;
+}
+
+.counterValue {
+  width: 96px;
+  height: 58px;
+  border-top: 1px solid #dddddd;
+  border-bottom: 1px solid #dddddd;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #282828;
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.priceBox {
+  display: flex;
+  align-items: flex-end;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.currentPrice {
+  font-size: clamp(2rem, 1.426rem + 2.353vi, 2.75rem);
+  line-height: 1;
+  font-weight: 700;
+  color: #282828;
+}
+
+.oldPrice {
+  font-size: clamp(1rem, 0.809rem + 0.784vi, 1.25rem);
+  line-height: 1;
+  color: #8b8b8b;
+  text-decoration: line-through;
+}
+
+.orderDetails {
+  padding: 32px;
+  border-radius: 12px;
+  background: #f1f3f4;
+}
+
+.orderTitle {
+  margin: 0 0 24px;
+  font-size: clamp(2rem, 1.426rem + 2.353vi, 2.75rem);
+  line-height: 1.1;
+  font-weight: 700;
+  color: #282828;
+}
+
+.itemsCount {
+  margin: 0 0 24px;
+  font-size: clamp(2rem, 1.426rem + 2.353vi, 2.75rem);
+  line-height: 1.1;
+  color: #8b8b8b;
+}
+
+.totalRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 16px;
+  margin-bottom: 32px;
+}
+
+.totalLabel {
+  font-size: clamp(2rem, 1.426rem + 2.353vi, 2.75rem);
+  line-height: 1.1;
+  color: #8b8b8b;
+}
+
+.totalValue {
+  font-size: clamp(2.75rem, 1.603rem + 4.706vi, 4.25rem);
+  line-height: 1;
+  font-weight: 700;
+  color: #282828;
+}
+
+.emptyCart {
+  padding: 40px 0 80px;
+}
+
+.emptyMessage {
+  margin: 0 0 24px;
+  font-size: 20px;
+  line-height: 1.3;
+  color: #282828;
+}
+
+.continueButton {
+  min-height: 48px;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  background: #0d50ff;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: 0.3s ease;
+  font-family: "Montserrat", sans-serif;
+}
+
+.continueButton:hover {
+  background: #282828;
+}
+
+.successModal :global(.ant-modal-container) {
+  background-color: #0d50ff;
+  border-radius: 12px;
+  padding: 32px;
+  font-family: "Montserrat", sans-serif;
+}
+
+.successModal :global(.ant-modal-body) {
+  padding: 0;
+}
+
+.successModal :global(.ant-modal-close) {
+  color: #ffffff !important;
+}
+
+.successModal :global(.ant-modal-close:hover) {
+  color: #ffffff !important;
+  opacity: 0.8;
+}
+
+.successContent {
+  padding: 0;
+}
+
+.successTitle {
+  margin: 0 0 24px;
+  font-size: 40px;
+  line-height: 1.1;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.successText {
+  margin: 0 0 16px;
+  font-size: 20px;
+  line-height: 1.3;
+  color: #ffffff;
+}
+
+@media screen and (max-width: 1200px) {
+  .cartContent {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .sectionTitleWrapper {
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+
+  .line {
+    display: none;
+  }
+
+  .button {
+    width: 100%;
+  }
+
+  .cartItem {
+    grid-template-columns: 1fr;
+  }
+
+  .imageBox {
+    max-height: 260px;
+    border-right: none;
+    border-bottom: 1px solid #dddddd;
+  }
+
+  .itemInfo {
+    padding: 20px;
+  }
+
+  .itemBottom {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .counterButton {
+    width: 48px;
+    height: 48px;
+    font-size: 28px;
+  }
+
+  .counterValue {
+    width: 72px;
+    height: 48px;
+    font-size: 18px;
+  }
+
+  .orderDetails {
+    padding: 24px 20px;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .button {
+    padding: 4px 8px;
+  }
+
+  .itemTitle {
+    font-size: 18px;
+  }
+
+  .removeButton {
+    font-size: 32px;
+  }
+
+  .priceBox {
+    gap: 10px;
+  }
+}

@@ -1,0 +1,32 @@
+.hero {
+  max-width: 1440px;
+  background-image: url("../../assets/hero-background.jpg");
+  background-size: cover;
+  margin: 0 auto;
+  margin-bottom: 80px;
+}
+
+.heroContent {
+  padding: 80px 0 308px;
+}
+
+.heroTitle {
+  font-size: clamp(2rem, -2rem + 12.8vi, 6rem);
+  color: #fff;
+  font-weight: bold;
+  margin-bottom: 40px;
+}
+
+.heroLink {
+  padding: 16px 56px;
+  background-color: #0d50ff;
+  font-size: clamp(1rem, 0.809rem + 0.784vi, 1.25rem);
+  font-size: clamp(1rem, 0.809rem + 0.784vi, 1.25rem);
+  border-radius: 8px;
+  color: #fff;
+  text-decoration: none;
+}
+
+.heroLink:hover {
+  background-color: #000;
+}

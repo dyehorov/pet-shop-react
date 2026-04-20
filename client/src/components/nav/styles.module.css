@@ -1,0 +1,27 @@
+.navList {
+  list-style: none;
+  display: flex;
+  gap: 32px;
+}
+
+.link {
+  color: #000;
+  text-decoration: none;
+  font-size: 20px;
+}
+
+.activeLink {
+  color: #0d50ff;
+}
+
+@media screen and (max-width: 800px) {
+  .navList {
+    gap: 12px;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .navList {
+    display: none;
+  }
+}
