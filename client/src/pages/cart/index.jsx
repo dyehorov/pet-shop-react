@@ -169,11 +169,13 @@ export default function Cart() {
 
                       <div className={styles.priceBox}>
                         <span className={styles.currentPrice}>
-                          ${actualPrice}
+                          ${actualPrice * item.quantity}
                         </span>
 
                         {item.discont_price && (
-                          <span className={styles.oldPrice}>${item.price}</span>
+                          <span className={styles.oldPrice}>
+                            ${item.price * item.quantity}
+                          </span>
                         )}
                       </div>
                     </div>
