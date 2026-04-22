@@ -11,7 +11,17 @@ import { useSelector, useDispatch } from "react-redux"
 import { fetchProducts } from "./redux/slices/productsSlice"
 import { fetchCategories } from "./redux/slices/categoriesSlice"
 import { useEffect } from "react"
-import { BrowserRouter } from "react-router"
+import { BrowserRouter, useLocation } from "react-router"
+
+function ScrollToTop() {
+  const { pathname } = useLocation()
+
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [pathname])
+
+  return null
+}
 
 export default function App() {
   const dispatch = useDispatch()
@@ -28,6 +38,7 @@ export default function App() {
 
   return (
     <BrowserRouter>
+      <ScrollToTop />
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
